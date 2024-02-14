@@ -61,10 +61,10 @@ const complexNum operator *(complexNum& uno, complexNum& dos) {
 }
 void printComplexNum(complexNum& printee) {
 	std::cout << "-------------";
-	std::cout << "\nResistance: " << printee.getReal()
-		<< "\nReactance: " << printee.getImaginary()
-		<< "\nImpedance: " << printee.getModulus()
-		<< "\nPhase: " << printee.getPhase() * 180 / M_PI << std::endl;
+	std::cout << "\nReal: " << printee.getReal()
+		<< "\nImaginary: " << printee.getImaginary()
+		<< "\nImaginary: " << printee.getModulus()
+		<< "\nPhase difference: " << printee.getPhase() * 180 / M_PI << std::endl;
 	std::cout << "-------------";
 	std::cout << std::endl;
 }
