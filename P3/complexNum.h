@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+
+
 class complexNum {
 public:
 	complexNum() : real(0), imaginary(0) {}
@@ -59,10 +61,10 @@ const complexNum operator *(complexNum& uno, complexNum& dos) {
 }
 void printComplexNum(complexNum& printee) {
 	std::cout << "-------------";
-	std::cout << "\nReal: " << printee.getReal()
-		<< "\nImaginary: " << printee.getImaginary()
-		<< "\nModulus: " << printee.getModulus()
-		<< "\nPhase: " << printee.getPhase() << std::endl;
+	std::cout << "\nResistance: " << printee.getReal()
+		<< "\nReactance: " << printee.getImaginary()
+		<< "\nImpedance: " << printee.getModulus()
+		<< "\nPhase: " << printee.getPhase() * 180 / M_PI << std::endl;
 	std::cout << "-------------";
 	std::cout << std::endl;
 }

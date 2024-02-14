@@ -1,8 +1,8 @@
+#define _USE_MATH_DEFINES
+
 #include <iostream>
-
 #include "complexNum.h"
-
-#define PI = 3.14
+#include <cmath>
 
 
 complexNum calculateImpedance() {
@@ -27,7 +27,7 @@ complexNum calculateImpedance() {
 
 
 
-	angularFrequency = 2 * 3.14 * frequency;
+	angularFrequency = 2 * M_PI * frequency;
 
 	real = resistance;
 	imaginary = ((angularFrequency*inductance) - (1/(angularFrequency*capacitance)));
