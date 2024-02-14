@@ -24,29 +24,23 @@ public:
 private:
 	double real = 0, imaginary = 0, absoluteVal = 0, congugate = 0;
 };
-
 const complexNum operator +( complexNum& uno,  complexNum& dos) {
 	double realSum = uno.getReal() + dos.getReal();
 	double imagSum = uno.getImaginary() + dos.getImaginary();
 	return complexNum(realSum, imagSum);
 }
-
+void printComplexNum(complexNum& printee) {
+	std::cout << "Real: " << printee.getReal()
+		<< "\nImaginary: " << printee.getImaginary()
+		<< "\nModulus: " << printee.getModulus()
+		<< "\nPhase: " << printee.getPhase() << std::endl;
+}
 
 int main()
 {
-	
-
-
-
-
-
 	complexNum c3(3, 4);
 	complexNum c2(1, 2) , c1 = c2 + c3;
 
-	
+	printComplexNum(c1);
 
-	std::cout << "Real: " << c1.getReal()
-	   	<< "\nImaginary: "  << c1.getImaginary() 
-		<< "\nModulus: " << c1.getModulus()
-		<< "\nPhase: " << c1.getPhase() << std::endl;
 }
