@@ -2,11 +2,8 @@
 
 class complexNum {
 public:
-	complexNum();
-	complexNum(double realIn, double imaginaryIn) {
-		real = realIn;
-		imaginary = imaginaryIn;
-	};
+	complexNum() : real(0), imaginary(0) {}
+	complexNum(double realIn, double imaginaryIn) : real(realIn), imaginary(imaginaryIn) {}
 
 	double getReal() {
 		return real;
@@ -24,23 +21,66 @@ public:
 private:
 	double real = 0, imaginary = 0, absoluteVal = 0, congugate = 0;
 };
-const complexNum operator +( complexNum& uno,  complexNum& dos) {
+const complexNum operator +(complexNum& uno, complexNum& dos) {
 	double realSum = uno.getReal() + dos.getReal();
 	double imagSum = uno.getImaginary() + dos.getImaginary();
 	return complexNum(realSum, imagSum);
 }
+const complexNum operator -(complexNum& uno, complexNum& dos) {
+	double realSum = uno.getReal() - dos.getReal();
+	double imagSum = uno.getImaginary() - dos.getImaginary();
+	return complexNum(realSum, imagSum);
+}
+const complexNum operator /(complexNum& uno, complexNum& dos) {
+	double polarDiv = uno.getModulus() / dos.getModulus();
+	double phaseDiv = uno.getPhase() - dos.getPhase();
+
+	double realDiv = polarDiv * cos(phaseDiv);
+	double imagDiv = polarDiv * sin(phaseDiv);
+
+
+
+	return complexNum(realDiv, imagDiv);
+}
+const complexNum operator *(complexNum& uno, complexNum& dos) {
+	double polarDiv = uno.getModulus() * dos.getModulus();
+	double phaseDiv = uno.getPhase() + dos.getPhase();
+
+	double realDiv = polarDiv * cos(phaseDiv);
+	double imagDiv = polarDiv * sin(phaseDiv);
+
+
+
+	return complexNum(realDiv, imagDiv);
+}
+
+
+
 void printComplexNum(complexNum& printee) {
-	std::cout << "Real: " << printee.getReal()
+	std::cout << "-------------";
+	std::cout << "\nReal: " << printee.getReal()
 		<< "\nImaginary: " << printee.getImaginary()
 		<< "\nModulus: " << printee.getModulus()
 		<< "\nPhase: " << printee.getPhase() << std::endl;
+	std::cout << "-------------";
+	std::cout << std::endl;
 }
 
 int main()
 {
-	complexNum c3(3, 4);
-	complexNum c2(1, 2) , c1 = c2 + c3;
+	complexNum c3, c4, c5, c6;
+	complexNum c1(4, 6);
+	complexNum c2(2, 2);
+	
 
-	printComplexNum(c1);
+	c3 = c1 + c2;
+	c4 = c1 - c2;
+
+	c5 = c1 / c2;
+	c6 = c1 * c2;
+	printComplexNum(c3);
+	printComplexNum(c4);
+	printComplexNum(c5);
+	printComplexNum(c6);
 
 }
