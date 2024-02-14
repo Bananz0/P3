@@ -2,22 +2,44 @@
 
 #include "complexNum.h"
 
-int main()
-{
-	complexNum c3, c4, c5, c6;
-	complexNum c1(4, 6);
-	complexNum c2(2, 2);
+#define PI = 3.14
+
+
+complexNum calculateImpedance() {
+	double resistance, frequency, capacitance, inductance, real, imaginary, angularFrequency;
 	
 
-	c3 = c1 + c2;
-	c4 = c1 - c2;
+	std::cout << "Resistance: ";
+	std::cin >> resistance;
+	std::cout<<std::endl;
 
-	c5 = c1 / c2;
-	c6 = c1 * c2;
+	std::cout << "Capacitance: ";
+	std::cin >> capacitance;
+	std::cout << std::endl;
 
-	printComplexNum(c3);
-	printComplexNum(c4);
-	printComplexNum(c5);
-	printComplexNum(c6);
+	std::cout << "Inductance: ";
+	std::cin >> inductance;
+	std::cout << std::endl;
+
+	std::cout << "Frequency: ";
+	std::cin >> frequency;
+	std::cout << std::endl;
+
+
+
+	angularFrequency = 2 * 3.14 * frequency;
+
+	real = resistance;
+	imaginary = ((angularFrequency*inductance) - (1/(angularFrequency*capacitance)));
+	return complexNum(real, imaginary);
+
+}
+int main()
+{
+	
+	complexNum c1 = calculateImpedance();
+	printComplexNum(c1);
+
+
 
 }
