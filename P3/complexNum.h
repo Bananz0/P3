@@ -44,8 +44,6 @@ const complexNum operator /(complexNum& uno, complexNum& dos) {
 	double realDiv = polarDiv * cos(phaseDiv);
 	double imagDiv = polarDiv * sin(phaseDiv);
 
-
-
 	return complexNum(realDiv, imagDiv);
 }
 const complexNum operator *(complexNum& uno, complexNum& dos) {
@@ -55,15 +53,13 @@ const complexNum operator *(complexNum& uno, complexNum& dos) {
 	double realDiv = polarDiv * cos(phaseDiv);
 	double imagDiv = polarDiv * sin(phaseDiv);
 
-
-
 	return complexNum(realDiv, imagDiv);
 }
 void printComplexNum(complexNum& printee) {
 	std::cout << "-------------";
 	std::cout << "\nReal: " << printee.getReal()
 		<< "\nImaginary: " << printee.getImaginary()
-		<< "\nImaginary: " << printee.getModulus()
+		<< "\nModulus: " << printee.getModulus()
 		<< "\nPhase difference: " << printee.getPhase() * 180 / M_PI << std::endl;
 	std::cout << "-------------";
 	std::cout << std::endl;
